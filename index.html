@@ -608,6 +608,24 @@
   .gallery-btn { width: 40px; height: 40px; font-size: 16px; }
 }
 
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-left { display: flex; flex-direction: column; }
+.hero-right { position: relative; }
+.hero-right .gallery-wrapper { border-radius: 12px; overflow: hidden; }
+.hero-right .gallery-slide img { height: 420px; }
+
+@media (max-width: 760px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-right .gallery-slide img { height: 260px; }
+}
+
 </style>
 </head>
 <body>
@@ -626,18 +644,55 @@
 
   <section class="hero">
     <div class="hero-bg"></div>
-    <div class="category-tag">🎮 Most Anticipated Releases</div>
-    <h1>The Games<br>Everyone Is<br><em>Waiting</em> For</h1>
-    <div class="hero-meta">
-      <span>GamePulse Editorial</span>
-      <div class="dot"></div>
-      <span>May 12, 2026</span>
-      <div class="dot"></div>
-      <span>4 min read</span>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="category-tag">🎮 Most Anticipated Releases</div>
+        <h1>The Games<br>Everyone Is<br><em>Waiting</em> For</h1>
+        <div class="hero-meta">
+          <span>GamePulse Editorial</span>
+          <div class="dot"></div>
+          <span>May 12, 2026</span>
+          <div class="dot"></div>
+          <span>4 min read</span>
+        </div>
+        <p class="hero-intro">
+          GTA VI and Hideo Kojima's <em>OD</em> top the list of most anticipated releases in 2026 — one a decade in the making, the other a genre-bending horror unlike anything before it.
+        </p>
+      </div>
+      <div class="hero-right">
+        <div class="gallery-wrapper">
+          <button class="gallery-btn prev" onclick="slideGallery(-1)">&#8592;</button>
+          <div class="gallery-track" id="galleryTrack">
+            <div class="gallery-slide">
+              <img src="gta1.jpg" alt="GTA VI Lucia boxing" loading="lazy">
+              <div class="slide-caption">Lucia — protagonist of GTA VI</div>
+            </div>
+            <div class="gallery-slide">
+              <img src="gta2.avif" alt="GTA VI key art" loading="lazy">
+              <div class="slide-caption">Official key art — Lucia & Jason</div>
+            </div>
+            <div class="gallery-slide">
+              <img src="gta3.jpg" alt="GTA VI Jason" loading="lazy">
+              <div class="slide-caption">Jason — Vice City streets</div>
+            </div>
+            <div class="gallery-slide">
+              <img src="gta4.webp" alt="GTA VI gameplay" loading="lazy">
+              <div class="slide-caption">Lucia & Jason — open world gameplay</div>
+            </div>
+            <div class="gallery-slide">
+              <img src="gta5.webp" alt="GTA VI PS5" loading="lazy">
+              <div class="slide-caption">GTA VI — PS5 footage</div>
+            </div>
+            <div class="gallery-slide">
+              <img src="gta6.jpg" alt="GTA VI logo" loading="lazy">
+              <div class="slide-caption">Grand Theft Auto VI — Nov 19, 2026</div>
+            </div>
+          </div>
+          <button class="gallery-btn next" onclick="slideGallery(1)">&#8594;</button>
+        </div>
+        <div class="gallery-dots" id="galleryDots"></div>
+      </div>
     </div>
-    <p class="hero-intro">
-      GTA VI and Hideo Kojima's <em>OD</em> top the list of most anticipated releases in 2026 — one a decade in the making, the other a genre-bending horror unlike anything before it.
-    </p>
   </section>
 
   <div class="divider">
@@ -758,45 +813,6 @@
       <span class="collab-name">Jordan Peele</span>
     </div>
   </div>
-
-<!-- GTA VI Gallery -->
-<section class="gallery-section">
-  <div class="gallery-header">
-    <div class="gallery-tag">📸 Screenshots</div>
-    <h2 class="gallery-title">GTA VI — <em>Vice City</em></h2>
-  </div>
-  <div class="gallery-wrapper">
-    <button class="gallery-btn prev" onclick="slideGallery(-1)">&#8592;</button>
-    <div class="gallery-track" id="galleryTrack">
-      <div class="gallery-slide">
-        <img src="gta1.jpg" alt="GTA VI Lucia boxing" loading="lazy">
-        <div class="slide-caption">Lucia — protagonist of GTA VI</div>
-      </div>
-      <div class="gallery-slide">
-        <img src="gta2.avif" alt="GTA VI key art" loading="lazy">
-        <div class="slide-caption">Official key art — Lucia & Jason</div>
-      </div>
-      <div class="gallery-slide">
-        <img src="gta3.jpg" alt="GTA VI Jason" loading="lazy">
-        <div class="slide-caption">Jason — Vice City streets</div>
-      </div>
-      <div class="gallery-slide">
-        <img src="gta4.webp" alt="GTA VI gameplay" loading="lazy">
-        <div class="slide-caption">Lucia & Jason — open world gameplay</div>
-      </div>
-      <div class="gallery-slide">
-        <img src="gta5.webp" alt="GTA VI PS5" loading="lazy">
-        <div class="slide-caption">GTA VI — PS5 footage</div>
-      </div>
-      <div class="gallery-slide">
-        <img src="gta6.jpg" alt="GTA VI logo" loading="lazy">
-        <div class="slide-caption">Grand Theft Auto VI — Nov 19, 2026</div>
-      </div>
-    </div>
-    <button class="gallery-btn next" onclick="slideGallery(1)">&#8594;</button>
-  </div>
-  <div class="gallery-dots" id="galleryDots"></div>
-</section>
 
 </article>
 
